@@ -1,10 +1,10 @@
 # Deep Conpression AutoDecoder via Distillation
 
-<center>Jingyuan Zhang tonyzhang666@sjtu.edu.cn</center>
+Jingyuan Zhang tonyzhang666@sjtu.edu.cn
 
-<center>School of Electronic Information and Electrical Engineering</center>
+School of Electronic Information and Electrical Engineering
 
-<center>Shanghai Jiao Tong University</center>
+Shanghai Jiao Tong University
 
 ## Abstract
 
