@@ -1,14 +1,14 @@
 # Deep Conpression AutoDecoder via Distillation
 
-<center>Jingyuan Zhang tonyzhang666@sjtu.edu.cn</center>
+Jingyuan Zhang tonyzhang666@sjtu.edu.cn
 
-<center>School of Electronic Information and Electrical Engineering</center>
+School of Electronic Information and Electrical Engineering
 
-<center>Shanghai Jiao Tong University</center>
+Shanghai Jiao Tong University
 
 ## Abstract
 
-This project constructs a pipeline to get light models with minimal loss via distillation. First, we prune model structure of decoder and arquire light student models. Then, we do distillation training with teacher model [dc-ae-f32c32-in-1.0](https://huggingface.co/mit-han-lab/dc-ae-f32c32-in-1.0) to reduce the gap as much as possible. During traing, we always freeze the encoder part and project out part of decoder. Furthermore, we involved tricks like AdamW optimizer, CosineAnnealingWarmRestarts Scheduler, Dynamic Loss Weight Adjustment Method, Batch Accumulation and Segment Training. Components of loss function include L1 distillation loss, L1 image loss, LPIPS loss, PatchGAN loss etc. After that, we choose FID, PSNR, SSIM and LPIPS as our evaluation matrice for image quality and MACs/inference time as indicators for speed. Finally, new light models outperform benchmark in PSNR and SSIM, the quality of generated images. Also, there is no significant difference in visualization between the generated image and teacher model. **The main codes are in "efficientvit/applications/dc_ae/scripts"**
+This project constructs a pipeline to get light models with minimal loss via distillation. First, we prune model structure of decoder and arquire light student models. Then, we do distillation training with teacher model [dc-ae-f32c32-in-1.0](https://huggingface.co/mit-han-lab/dc-ae-f32c32-in-1.0) to reduce the gap as much as possible. During traing, we always freeze the encoder part and project out part of decoder. Furthermore, we involved tricks like AdamW optimizer, CosineAnnealingWarmRestarts Scheduler, Dynamic Loss Weight Adjustment Method, Batch Accumulation and Segment Training. Components of loss function include L1 distillation loss, L1 image loss, LPIPS loss, PatchGAN loss etc. After that, we choose FID, PSNR, SSIM and LPIPS as our evaluation matrice for image quality and MACs/inference time as indicators for speed. Finally, new light models outperform benchmark in PSNR and SSIM, the quality of generated images. Also, there is no significant difference in visualization between the generated image and teacher model. **The main codes are in "DC_DE-via-Distillation/applications/dc_ae/scripts"**
 
 
 
