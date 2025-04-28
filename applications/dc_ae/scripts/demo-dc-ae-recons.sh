@@ -1,0 +1,1 @@
+python -m applications.dc_ae.demo_dc_ae_model_0 model=dc-ae-f32c32-in-1.0 run_dir=.demo/reconstruction/dc-ae-f32c32-in-1.0 input_path_list=[assets/fig/girl.png]

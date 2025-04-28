@@ -1,0 +1,98 @@
+if name in ["dc-ae-f32c32-in-1.0", "dc-ae-f32c32-mix-1.0"]:
+        cfg_str = (
+            "latent_channels=32 "
+            "encoder.block_type=[ResBlock,ResBlock,ResBlock,EViT_GLU,EViT_GLU,EViT_GLU] "
+            "encoder.width_list=[128,256,512,512,1024,1024] encoder.depth_list=[0,4,8,2,2,2] "
+            "decoder.block_type=[ResBlock,ResBlock,ResBlock,EViT_GLU,EViT_GLU,EViT_GLU] "
+            "decoder.width_list=[128,256,512,512,1024,1024] decoder.depth_list=[0,5,10,2,2,2] "
+            "decoder.norm=[bn2d,bn2d,bn2d,trms2d,trms2d,trms2d] decoder.act=[relu,relu,relu,silu,silu,silu]"
+        )
+    elif name in ["dc-ae-f32c32-in-1.0-pruned-v1"]:
+        cfg_str = (
+            "latent_channels=32 "
+            "encoder.block_type=[ResBlock,ResBlock,ResBlock,EViT_GLU,EViT_GLU,EViT_GLU] "
+            "encoder.width_list=[128,256,512,512,1024,1024] encoder.depth_list=[0,4,8,2,2,2] "
+            "decoder.block_type=[ResBlock,ResBlock,ResBlock,EViT_GLU,EViT_GLU] "
+            "decoder.width_list=[128,256,512,512,1024] decoder.depth_list=[0,5,10,2,2] "
+            "decoder.norm=[bn2d,bn2d,bn2d,trms2d,trms2d] decoder.act=[relu,relu,relu,silu,silu]"
+        )
+
+
+
+RuntimeError: Error(s) in loading state_dict for DCAE_HF:
+        size mismatch for encoder.project_out.main.op_list.0.conv.weight: copying a param with shape torch.Size([128, 2048, 3, 3]) from checkpoint, the shape in current model is torch.Size([32, 1024, 3, 3]).
+        size mismatch for encoder.project_out.main.op_list.0.conv.bias: copying a param with shape torch.Size([128]) from checkpoint, the shape in current model is torch.Size([32]).
+        size mismatch for decoder.project_in.main.conv.weight: copying a param with shape torch.Size([2048, 128, 3, 3]) from checkpoint, the shape in current model is torch.Size([1024, 32, 3, 3]).
+        size mismatch for decoder.project_in.main.conv.bias: copying a param with shape torch.Size([2048]) from checkpoint, the shape in current model is torch.Size([1024]).
+
+
+// "model_name": "dc-ae-f64c128-in-1.0"
+
+
+
+RuntimeError: Error(s) in loading state_dict for DCAE_HF:
+        size mismatch for decoder.stages.3.op_list.0.main.conv.conv.weight: copying a param with shape torch.Size([2048, 1024, 3, 3]) from checkpoint, the shape in current model is torch.Size([2048, 512, 3, 3]).
+        size mismatch for decoder.stages.4.op_list.0.main.conv.conv.weight: copying a param with shape torch.Size([4096, 1024, 3, 3]) from checkpoint, the shape in current model is torch.Size([2048, 1024, 3, 3]).
+        size mismatch for decoder.stages.4.op_list.0.main.conv.conv.bias: copying a param with shape torch.Size([4096]) from checkpoint, the shape in current model is torch.Size([2048]).
+        size mismatch for decoder.stages.4.op_list.1.context_module.main.qkv.conv.weight: copying a param with shape torch.Size([3072, 1024, 1, 1]) from checkpoint, the shape in current model is torch.Size([1536, 512, 1, 1]).
+        size mismatch for decoder.stages.4.op_list.1.context_module.main.proj.conv.weight: copying a param with shape torch.Size([1024, 1024, 1, 1]) from checkpoint, the shape in current model is torch.Size([512, 512, 1, 1]).
+        size mismatch for decoder.stages.4.op_list.1.context_module.main.proj.norm.weight: copying a param with shape torch.Size([1024]) from checkpoint, the shape in current model is torch.Size([512]).
+        size mismatch for decoder.stages.4.op_list.1.context_module.main.proj.norm.bias: copying a param with shape torch.Size([1024]) from checkpoint, the shape in current model is torch.Size([512]).
+        size mismatch for decoder.stages.4.op_list.1.local_module.main.inverted_conv.conv.weight: copying a param with shape torch.Size([8192, 1024, 1, 1]) from checkpoint, the shape in current model is torch.Size([4096, 512, 1, 1]).
+        size mismatch for decoder.stages.4.op_list.1.local_module.main.inverted_conv.conv.bias: copying a param with shape torch.Size([8192]) from checkpoint, the shape in current model is torch.Size([4096]).
+        size mismatch for decoder.stages.4.op_list.1.local_module.main.depth_conv.conv.weight: copying a param with shape torch.Size([8192, 1, 3, 3]) from checkpoint, the shape in current model is torch.Size([4096, 1, 3, 3]).
+        size mismatch for decoder.stages.4.op_list.1.local_module.main.depth_conv.conv.bias: copying a param with shape torch.Size([8192]) from checkpoint, the shape in current model is torch.Size([4096]).
+        size mismatch for decoder.stages.4.op_list.1.local_module.main.point_conv.conv.weight: copying a param with shape torch.Size([1024, 4096, 1, 1]) from checkpoint, the shape in current model is torch.Size([512, 2048, 1, 1]).
+        size mismatch for decoder.stages.4.op_list.1.local_module.main.point_conv.norm.weight: copying a param with shape torch.Size([1024]) from checkpoint, the shape in current model is torch.Size([512]).
+        size mismatch for decoder.stages.4.op_list.1.local_module.main.point_conv.norm.bias: copying a param with shape torch.Size([1024]) from checkpoint, the shape in current model is torch.Size([512]).
+        size mismatch for decoder.stages.4.op_list.2.context_module.main.qkv.conv.weight: copying a param with shape torch.Size([3072, 1024, 1, 1]) from checkpoint, the shape in current model is torch.Size([1536, 512, 1, 1]).
+        size mismatch for decoder.stages.4.op_list.2.context_module.main.proj.conv.weight: copying a param with shape torch.Size([1024, 1024, 1, 1]) from checkpoint, the shape in current model is torch.Size([512, 512, 1, 1]).
+        size mismatch for decoder.stages.4.op_list.2.context_module.main.proj.norm.weight: copying a param with shape torch.Size([1024]) from checkpoint, the shape in current model is torch.Size([512]).
+        size mismatch for decoder.stages.4.op_list.2.context_module.main.proj.norm.bias: copying a param with shape torch.Size([1024]) from checkpoint, the shape in current model is torch.Size([512]).
+        size mismatch for decoder.stages.4.op_list.2.local_module.main.inverted_conv.conv.weight: copying a param with shape torch.Size([8192, 1024, 1, 1]) from checkpoint, the shape in current model is torch.Size([4096, 512, 1, 1]).
+        size mismatch for decoder.stages.4.op_list.2.local_module.main.inverted_conv.conv.bias: copying a param with shape torch.Size([8192]) from checkpoint, the shape in current model is torch.Size([4096]).
+        size mismatch for decoder.stages.4.op_list.2.local_module.main.depth_conv.conv.weight: copying a param with shape torch.Size([8192, 1, 3, 3]) from checkpoint, the shape in current model is torch.Size([4096, 1, 3, 3]).
+        size mismatch for decoder.stages.4.op_list.2.local_module.main.depth_conv.conv.bias: copying a param with shape torch.Size([8192]) from checkpoint, the shape in current model is torch.Size([4096]).
+        size mismatch for decoder.stages.4.op_list.2.local_module.main.point_conv.conv.weight: copying a param with shape torch.Size([1024, 4096, 1, 1]) from checkpoint, the shape in current model is torch.Size([512, 2048, 1, 1]).
+        size mismatch for decoder.stages.4.op_list.2.local_module.main.point_conv.norm.weight: copying a param with shape torch.Size([1024]) from checkpoint, the shape in current model is torch.Size([512]).
+        size mismatch for decoder.stages.4.op_list.2.local_module.main.point_conv.norm.bias: copying a param with shape torch.Size([1024]) from checkpoint, the shape in current model is torch.Size([512]).
+
+
+
+        size mismatch for decoder.stages.2.op_list.0.main.conv.conv.weight: copying a param with shape torch.Size([2048, 512, 3, 3]) from checkpoint, the shape in current model is torch.Size([2048, 1024, 3, 3]).
+        size mismatch for decoder.stages.3.op_list.0.main.conv.conv.weight: copying a param with shape torch.Size([2048, 512, 3, 3]) from checkpoint, the shape in current model is torch.Size([4096, 1024, 3, 3]).
+        size mismatch for decoder.stages.3.op_list.1.context_module.main.qkv.conv.weight: copying a param with shape torch.Size([1536, 512, 1, 1]) from checkpoint, the shape in current model is torch.Size([3072, 1024, 1, 1]).
+        size mismatch for decoder.stages.3.op_list.1.context_module.main.proj.conv.weight: copying a param with shape torch.Size([512, 512, 1, 1]) from checkpoint, the shape in current model is torch.Size([1024, 1024, 1, 1]).
+        size mismatch for decoder.stages.3.op_list.1.context_module.main.proj.norm.weight: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([1024]).
+        size mismatch for decoder.stages.3.op_list.1.local_module.main.inverted_conv.conv.weight: copying a param with shape torch.Size([4096, 512, 1, 1]) from checkpoint, the shape in current model is torch.Size([8192, 1024, 1, 1]).
+        size mismatch for decoder.stages.3.op_list.1.local_module.main.depth_conv.conv.weight: copying a param with shape torch.Size([4096, 1, 3, 3]) from checkpoint, the shape in current model is torch.Size([8192, 1, 3, 3]).
+        size mismatch for decoder.stages.3.op_list.1.local_module.main.point_conv.conv.weight: copying a param with shape torch.Size([512, 2048, 1, 1]) from checkpoint, the shape in current model is torch.Size([1024, 4096, 1, 1]).
+        size mismatch for decoder.stages.3.op_list.1.local_module.main.point_conv.norm.weight: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([1024]).
+        size mismatch for decoder.stages.3.op_list.2.context_module.main.qkv.conv.weight: copying a param with shape torch.Size([1536, 512, 1, 1]) from checkpoint, the shape in current model is torch.Size([3072, 1024, 1, 1]).
+        size mismatch for decoder.stages.3.op_list.2.context_module.main.proj.conv.weight: copying a param with shape torch.Size([512, 512, 1, 1]) from checkpoint, the shape in current model is torch.Size([1024, 1024, 1, 1]).
+        size mismatch for decoder.stages.3.op_list.2.context_module.main.proj.norm.weight: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([1024]).
+        size mismatch for decoder.stages.3.op_list.2.local_module.main.inverted_conv.conv.weight: copying a param with shape torch.Size([4096, 512, 1, 1]) from checkpoint, the shape in current model is torch.Size([8192, 1024, 1, 1]).
+        size mismatch for decoder.stages.3.op_list.2.local_module.main.depth_conv.conv.weight: copying a param with shape torch.Size([4096, 1, 3, 3]) from checkpoint, the shape in current model is torch.Size([8192, 1, 3, 3]).
+        size mismatch for decoder.stages.3.op_list.2.local_module.main.point_conv.conv.weight: copying a param with shape torch.Size([512, 2048, 1, 1]) from checkpoint, the shape in current model is torch.Size([1024, 4096, 1, 1]).
+        size mismatch for decoder.stages.3.op_list.2.local_module.main.point_conv.norm.weight: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([1024]).
+
+
+    elif name in ["dc-ae-f32c32-in-1.0-pruned-v1"]:
+        cfg_str = (
+            "latent_channels=32 "
+            "encoder.block_type=[ResBlock,ResBlock,ResBlock,EViT_GLU,EViT_GLU,EViT_GLU] "
+            "encoder.width_list=[128,256,512,512,1024,1024] encoder.depth_list=[0,4,8,2,2,2] "
+            "decoder.block_type=[ResBlock,ResBlock,ResBlock,EViT_GLU,EViT_GLU,EViT_GLU] "
+            "decoder.width_list=[128,256,512,512,512,1024] decoder.depth_list=[0,5,10,2,2,2] "
+            "decoder.norm=[bn2d,bn2d,bn2d,trms2d,trms2d,trms2d] decoder.act=[relu,relu,relu,silu,silu,silu]"
+        )
+    elif name in ["dc-ae-f32c32-in-1.0-pruned-v2"]:
+        cfg_str = (
+            "latent_channels=32 "
+            "encoder.block_type=[ResBlock,ResBlock,ResBlock,EViT_GLU,EViT_GLU,EViT_GLU] "
+            "encoder.width_list=[128,256,512,512,1024,1024] encoder.depth_list=[0,4,8,2,2,2] "
+            "decoder.block_type=[ResBlock,ResBlock,ResBlock,EViT_GLU,EViT_GLU] "
+            "decoder.width_list=[128,256,512,1024,1024] decoder.depth_list=[0,5,10,2,2] "
+            "decoder.norm=[bn2d,bn2d,bn2d,trms2d,trms2d] decoder.act=[relu,relu,relu,silu,silu]"
+        )
+
